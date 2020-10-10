@@ -94,7 +94,7 @@ Ex.: if the italian translation file is structured as follows
 Also the franch translation file will have the same structure. The only difference between the two files will be the translated value
 ```json
 {
-	"it": {
+	"fr": {
 		"Home": "Maison"
 	}
 }
