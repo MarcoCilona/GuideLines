@@ -97,7 +97,7 @@ Follow this guide lines when creating a translation file:
    Good
    ```json
      {
-       "FAVORITE_COLOR": "my name is {color}"+
+       "FAVORITE_COLOR": "my name is {color}"
      }
    ```  
    ```js
@@ -163,10 +163,10 @@ Follow this guide lines when creating a translation file:
     ```
     The linked translations also supports string formatting, so, if you need one of the linked translation to be, for example, uppercase the linked string will be like this: "PAGE_NOT_FOUND": "@.uppercase:PAGE @:NOT_FOUND".
 The available modifiers are:
-- uppercase
-- lowercase
-- capitalize
-     **N.B.: use this kind of linked translation only if the linked one is static and won't be change dynamically. If, for example, you have a translation 'My favorite color is' and then a dynamic value for the color is needed, use the text interpolation**
+      - uppercase
+      - lowercase
+      - capitalize
+**N.B.: use this kind of linked translation only if the linked one is static and won't be change dynamically. If, for example, you have a translation 'My favorite color is' and then a dynamic value for the color is needed, use the text interpolation**
 
   
   
