@@ -40,6 +40,7 @@ export default new VueI18n({
 As you can see, the fallbacklocale and locale params are retrieved from the .env file. This will mantain the configurations of the vue app stored in one place and easy to retrieved.
 
 #### Translations files
+
 The translations files should be placed in './src/locales' and there must be a file for every language the application is going to support.
 VueI18n supports different file format, but the '.json' files are preferred because they are easy to read.
 So, if for example we are storing translations for both 'en' and 'de' language, the folder structure will be something like this:
@@ -48,5 +49,47 @@ So, if for example we are storing translations for both 'en' and 'de' language, 
 ├── src
 │   ├── locales
 │   │   ├── en.json
-|   |   |-- de.json
+│   │   ├── de.json
 ```
+
+##### File structure
+
+Follow this guide lines when creating a translation file:
+
+* Keep the keys always in uppercase
+  Bad
+  ```json
+    {
+      "home": "home"
+    }
+  ```
+  Good
+  ```json
+    {
+      "HOME": "home"
+    }
+  ```
+ * Keep the labels always lower case: when creating a translation you must focus only on it and not on its format. So keep every label lowercase, if some formatting  is needed, it will be applied with css or javacript.
+   Bad
+  ```json
+    {
+      "HOME": "Home"
+    }
+  ```
+  Good
+  ```json
+    {
+      "HOME": "home"
+    }
+  ```
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
