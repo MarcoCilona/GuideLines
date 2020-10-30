@@ -89,6 +89,44 @@ So, if for example we are storing translations for both 'en' and 'de' language, 
 
 Follow this guide lines when creating a translation file:
 
+* Split the translations into categories. One of the main problem using VueI18n is the duplication of labels. One approach to avoid or minimize this problem is to split the translations into categories.
+  - GLOBALS: all the labels that are use across the entire application (like: 'Next', 'Home', 'Login', 'Go back', and so on). Every time a label is used in multiple places in the application and it's without a context, put it under GLOBALS
+    ```json
+    {
+      "GLOBALS": {
+        "GO_BACK": "go back",
+        "NEXT": "next"
+      }
+    }
+    ```
+  - INFO: all the labels that identify a generic info should be place here. Imagine you make an api call to BE and based on the response you show a generic info message like: 'User updated', or 'Failed to save the user'. Those messages can also be shown when saving a post, ora saving an image. Those generic, dynamic translations should be put under INFO category.
+    ```json
+    {
+      "INFO": {
+        "DELETE": "Are you sure you want to delete {item}?",
+        "ERROR": "a problem occurred while saving {item}",
+        "SUCCESS": "{item} saved correctly!"
+      }
+    }
+    ```
+  - UI: all the labels related to ui elements should be placed here. For example, all the labels used in a form submition like 'submit', 'reset', 'username', ecc...
+  - Create a category for every available application macro domain. If your application has, for example, a dashboard, a section to handle the user information and a section to handle its post, three categories can be defined 'DASHBOARD', 'USER' and 'POST'.
+In case that one of the macro domain has subsections, think about nesting it under the main category.
+Here an example:
+    ```json
+    {
+      "DASHBOARD": {
+        "WELCOME": "welcome to awsome.it"
+      },
+      "POST": {
+        "DESCRIPTION": "this post is about {topic}",
+        "ACTIONS": {
+          "SHARE": "share {postTitle} on facebook to let your friends know what you've just learned!"
+        }
+      }
+    }
+    ```
+    
 * Keep the keys always in uppercase and use underscores to separate multiple words when needed
   Bad
   ```json
