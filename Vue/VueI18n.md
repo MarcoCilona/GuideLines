@@ -75,8 +75,8 @@ As you can see, the fallbacklocale and locale params are retrieved from the .env
 #### Translations files
 
 The translations files should be placed in './src/locales' and there must be a file for every language the application is going to support.
-VueI18n supports different file format, but the '.json' files are preferred because they are easy to read.
-So, if for example we are storing translations for both 'en' and 'de' language, the folder structure will be something like this:
+VueI18n supports different file format, but the '.json' files are preferred because they are easy to read. File names will be the language we are handling in it (use the ISO 639 naming conventions).
+So, if for example we are storing translations for both english and german language, the folder structure will be something like this:
 
 ```bash
 ├── src
