@@ -99,7 +99,7 @@ Follow this guide lines when creating a translation file:
      {
        "FAVORITE_COLOR": "my name is {color}"
      }
-   ```  
+   ```
    ```js
     const finalString = this.$t('FAVORITE_COLOR', { color: this.$t('RED')})
    ```
@@ -166,10 +166,10 @@ The available modifiers are:
       - uppercase
       - lowercase
       - capitalize
+    
+    **N.B.: use this kind of linked translation only if the linked one is static and won't be change dynamically. If, for example, you have a translation 'My favorite color is' and then a dynamic value for the color is needed, use the text interpolation**
 
-**N.B.: use this kind of linked translation only if the linked one is static and won't be change dynamically. If, for example, you have a translation 'My favorite color is' and then a dynamic value for the color is needed, use the text interpolation**
+  
 
   
-  
-  
-  
+
