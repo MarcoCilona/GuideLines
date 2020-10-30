@@ -56,17 +56,19 @@ So, if for example we are storing translations for both 'en' and 'de' language, 
 
 Follow this guide lines when creating a translation file:
 
-* Keep the keys always in uppercase
+* Keep the keys always in uppercase and use underscores to separate multiple words when needed
   Bad
   ```json
     {
-      "home": "home"
+      "home": "home",
+      "my-house": "my house
     }
   ```
   Good
   ```json
     {
-      "HOME": "home"
+      "HOME": "home",
+      "MY_HOUSE": "my house
     }
   ```
  * Keep the labels always lower case: when creating a translation you must focus only on it and not on its format. So keep every label lowercase, if some formatting  is needed, it will be applied with css or javacript.
@@ -86,52 +88,50 @@ Follow this guide lines when creating a translation file:
 
    ```json
      {
-       "FAVORITE_COLOR": "my favorite color is",
-       "RED": "red
+       "FAVORITE_COLOR": "my name is"
      }
    ```
    ```js
-    const finalString = this.$t('FAVORITE_COLOR') + this.$t('RED')
+    const finalString = this.$t('FAVORITE_COLOR') + 'Ermenegildo'
    ```
    Good
    ```json
      {
-       "FAVORITE_COLOR": "my favorite color is {color}",
-       "RED": "red
+       "FAVORITE_COLOR": "my name is {color}"+
      }
    ```  
    ```js
     const finalString = this.$t('FAVORITE_COLOR', { color: this.$t('RED')})
    ```
   * Keep alphabetical order: when creating a new translation, keep the alphabetical order
-   Bad
-   ```json
-     {
-       "HOME": "home",
-       "CALL": "call"
-     }
-   ```
-   Good
-   ```json
-     {
-       "CALL": "call",     
-       "HOME": "home"
-     }
-   ```
-   * Labels key in english: the key of every label must be in english
     Bad
     ```json
       {
-        "CASA": "home"
+        "HOME": "home",
+        "CALL": "call"
       }
     ```
     Good
     ```json
-      {    
+      {
+        "CALL": "call",     
         "HOME": "home"
       }
     ```
-   * If you are creating a translation for a single word use pluralization when possible this will avoid label duplications if plural or single version is needed later on
+   * Labels key in english: the key of every label must be in english
+     Bad
+     ```json
+       {
+         "CASA": "home"
+       }
+     ```
+     Good
+     ```json
+       {    
+         "HOME": "home"
+       }
+     ```
+  * If you are creating a translation for a single word use pluralization when possible this will avoid label duplications if plural or single version is needed later on
     Bad
     ```json
       {
@@ -143,9 +143,31 @@ Follow this guide lines when creating a translation file:
       {    
         "CAR": "car | cars"
       }
-    ```   
-  
-  
+    ```
+  * Use linked translations: sometimes you will need some translation to use another translation into it. Use the linked translations instead.
+    Bad
+    ```json
+      {
+        "NOT_FOUND": "not found",
+        "PAGE": "page",
+        "PAGE_NOT_FOUND": "page not found"
+      }
+    ```
+    Good
+    ```json
+      {
+        "NOT_FOUND": "not found",
+        "PAGE": "page",
+        "PAGE_NOT_FOUND": "@:PAGE @:NOT_FOUND"
+      }
+    ```
+    The linked translations also supports string formatting, so, if you need one of the linked translation to be, for example, uppercase the linked string will be like this: "PAGE_NOT_FOUND": "@.uppercase:PAGE @:NOT_FOUND".
+The available modifiers are:
+- uppercase
+- lowercase
+- capitalize
+     **N.B.: use this kind of linked translation only if the linked one is static and won't be change dynamically. If, for example, you have a translation 'My favorite color is' and then a dynamic value for the color is needed, use the text interpolation**
+
   
   
   
