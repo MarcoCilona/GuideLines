@@ -126,7 +126,6 @@ Here an example:
       }
     }
     ```
-    
 * Keep the keys always in uppercase and use underscores to separate multiple words when needed
   Bad
   ```json
