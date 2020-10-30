@@ -85,7 +85,7 @@ So, if for example we are storing translations for both english and german langu
 │   │   ├── de.json
 ```
 
-##### File structure
+##### Style guide
 
 Follow this guide lines when creating a translation file:
 
@@ -142,6 +142,20 @@ Here an example:
       "MY_HOUSE": "my house
     }
   ```
+  
+ * Use descriptive name for the label key and avoid using long keys
+   Bad
+   ```json
+     {
+       "MY_NAME_IS": "my name is"
+     }
+   ```
+   Good
+   ```json
+     {
+       "INTRODUCE": "my name is"
+     }
+   ```
  * Keep the labels always lower case: when creating a translation you must focus only on it and not on its format. So keep every label lowercase, if some formatting  is needed, it will be applied with css or javacript.
    Bad
    ```json
