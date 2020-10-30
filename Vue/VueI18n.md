@@ -39,6 +39,39 @@ export default new VueI18n({
 
 As you can see, the fallbacklocale and locale params are retrieved from the .env file. This will mantain the configurations of the vue app stored in one place and easy to retrieved.
 
+#### Usages
+  * $t: when you need to use a translation from a file, use $t function. It takes the key representing the translation as argument. If the label is nested, the key must be the complete 'path' to that translation.
+    ```json
+    {
+      "GREETINGS": {
+        "HELLO": "hello"
+      },
+      "HOME": "home"
+    }
+    ```
+    ```js
+      this.$t('HOME')
+      this.$t('GREETINGS.HELLO')
+    ```
+  * $tc: when pluralization is needed use $tc to translate that label. It takes the key representing the translation and the number of occurrencies as argument. 
+    ```json
+    {
+      "CAR": "car | cars"
+    }
+    ```
+    ```js
+      this.$tc('CAR', 1) ----> 'car'
+      this.$tc('CAR', 2) ----> 'cars'
+    ```
+  * text interpolation: sometimes you will need to pass arguments to the translation. Use the text interpolation to do so
+    ```json
+    {
+      "NAME": "my name is {name}"
+    }
+    ```
+    ```js
+      this.$t('NAME', { name: 'James' }) ---> 'my name is James'
+    ```
 #### Translations files
 
 The translations files should be placed in './src/locales' and there must be a file for every language the application is going to support.
