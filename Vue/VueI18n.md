@@ -71,22 +71,79 @@ Follow this guide lines when creating a translation file:
   ```
  * Keep the labels always lower case: when creating a translation you must focus only on it and not on its format. So keep every label lowercase, if some formatting  is needed, it will be applied with css or javacript.
    Bad
-  ```json
-    {
-      "HOME": "Home"
-    }
-  ```
-  Good
-  ```json
-    {
-      "HOME": "home"
-    }
-  ```
- 
-  
-  
-  
-  
+   ```json
+     {
+       "HOME": "Home"
+     }
+   ```
+   Good
+   ```json
+     {
+       "HOME": "home"
+     }
+   ```
+ * Use placeholders: sometimes you will need a string with dynamic content, don't concatenate different string to achieve the final one, but use placeholders instead because, sometimes, the same sentence may have a different word positioning in different languages. And, using placeholders, you can also have dynamic text inside the phrase and not only on its end or start.
+
+   ```json
+     {
+       "FAVORITE_COLOR": "my favorite color is",
+       "RED": "red
+     }
+   ```
+   ```js
+    const finalString = this.$t('FAVORITE_COLOR') + this.$t('RED')
+   ```
+   Good
+   ```json
+     {
+       "FAVORITE_COLOR": "my favorite color is {color}",
+       "RED": "red
+     }
+   ```  
+   ```js
+    const finalString = this.$t('FAVORITE_COLOR', { color: this.$t('RED')})
+   ```
+  * Keep alphabetical order: when creating a new translation, keep the alphabetical order
+   Bad
+   ```json
+     {
+       "HOME": "home",
+       "CALL": "call"
+     }
+   ```
+   Good
+   ```json
+     {
+       "CALL": "call",     
+       "HOME": "home"
+     }
+   ```
+   * Labels key in english: the key of every label must be in english
+    Bad
+    ```json
+      {
+        "CASA": "home"
+      }
+    ```
+    Good
+    ```json
+      {    
+        "HOME": "home"
+      }
+    ```
+   * If you are creating a translation for a single word use pluralization when possible this will avoid label duplications if plural or single version is needed later on
+    Bad
+    ```json
+      {
+        "CAR": "car"
+      }
+    ```
+    Good
+    ```json
+      {    
+        "CAR": "car | cars"
+      }
+    ```   
   
   
   
