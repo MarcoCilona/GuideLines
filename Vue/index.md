@@ -15,7 +15,7 @@
     If more than one event with the same name is used inside the page, add some attribute specific to the element to the event name.
     ex.: handleConfirmButtonClicked
 * **Use mixins** if some components shares the same code, export it in a mixin. This way you will be able to reuse that code as the component property and use it anywhere.
-* **Compoent style** prefer SFC. If you have to move the style out of the component file, named that file with the component name. Ex.: Button.vue - Button.scss
+* **Component style** prefer SFC. If you have to move the style out of the component file, named that file with the component name. Ex.: Button.vue - Button.scss
 * **Props creation** when creating a component prop use camelCase and follow this pattern: propName: { default: default-value, type: propType }
 * **Create methods call** if a method is called both in created hook and in a watched element, remove the call from the created hook, its useles
 * **Loop key** always add key attribute when using loop inside the template
