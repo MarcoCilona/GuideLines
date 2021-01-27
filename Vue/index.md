@@ -47,12 +47,13 @@ By importing this module inside a index.js file, the store will be more readable
 
 The project will have a folder called store with the following structure:
 
+```bash
 store/
-|
 |- index.js
 |- modules/
     |- module1.store.js 
     |- module2.store.js 
+```
 
 Here an example of how to structure a store module:
 
@@ -125,13 +126,13 @@ To prevent the route file to become too much large and creating confusion, we ca
 
 Example of structure:
 
+```bash
 router/
-|
 |- index.js
 |- modules/
     |- administration.js
     |- dashboard.js
-
+```
 
 ##### Axios
 Use VueAxios to handle api calls.
@@ -218,14 +219,16 @@ export const UserService = {
 ```
 
 ###### Folder structure
+
+```bash
 common/
-|
 |- config.js
 |- api.service.js
 |- api-resources/
     |- user.service.js
     |- project.service.js
     |- ...
+```
 
 ###### Best Practices
 * **File name** every service file will be called with the following pattern: __domain__ service.js.
@@ -258,8 +261,8 @@ export const UserService = {
 ##### Project structure
 A Vue project src folder should be structured as follows
 
+```bash
 src/
-|
 |- assets/
 |- common/
     |- api.service.js
@@ -284,6 +287,7 @@ src/
 |- views/
 |- App.vue
 |- main.js
+```
 
 Description
 * **assets**: store images, svg and media files;
